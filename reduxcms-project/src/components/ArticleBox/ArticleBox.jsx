@@ -1,41 +1,65 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import swal from "sweetalert";
+import { removeArticles } from "../../redux/store/articles";
 
-export default function ArticleBox() {
+export default function ArticleBox({ _id, title, views, desc, category }) {
+  const dispath = useDispatch();
+  const removeHandler = () => {
+    console.log("clicked");
+    swal({
+      title: "آیا از حذف مطمعن هستید؟",
+      icon: "warning",
+      buttons: ["نه", "آره"],
+    }).then((result) => {
+      if (result) {
+        dispath(removeArticles(_id));
+        swal({
+          title: "کاربر با موفقیت حذف شد ",
+          icon: "success",
+          buttons: "خیلی هم عالی",
+        });
+      }
+    });
+  };
+
   return (
-    <div class="articles__item">
+    <div className="articles__item">
       <img
         src="../../img/store/products/product-img-1.jpg"
         alt="product-img-1"
-        class="articles__img"
+        className="articles__img"
       />
-      <div class="articles__details w-100">
-        <div class="articles__info">
-          <h3 class="articles__name">دوره متخصص ریداکس</h3>
-          <p class="articles__short-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            ullam voluptates impedit incidunt
-          </p>
+      <div className="articles__details w-100">
+        <div className="articles__info">
+          <h3 className="articles__name">{title}</h3>
+          <p className="articles__short-desc">{desc}</p>
         </div>
-        <div class="articles__tags">
-          <div class="articles__boxes">
-            <div class="articles__category-box d-flex gap-2 align-items-center">
-              <span class="fa fa-tags"></span>
-              <p class="articles__tag-text articles__category my-0">
+        <div className="articles__tags">
+          <div className="articles__boxes">
+            <div className="articles__category-box d-flex gap-2 align-items-center">
+              <span className="fa fa-tags"></span>
+              <p className="articles__tag-text articles__category my-0">
                 <span>دسته بندی :</span>
-                <span class="articles__category-value">فرانت‌اند</span>
+                <span className="articles__category-value">{category}</span>
               </p>
             </div>
-            <div class="articles__visited-box d-flex gap-2 align-items-center">
-              <span class="fa fa-users"></span>
-              <p class="articles__tag-text articles__visited my-0">
+            <div className="articles__visited-box d-flex gap-2 align-items-center">
+              <span className="fa fa-users"></span>
+              <p className="articles__tag-text articles__visited my-0">
                 <span>تعداد بازدید :</span>
-                <span class="articles__visited-count">23</span>
+                <span className="articles__visited-count">{views}</span>
               </p>
             </div>
           </div>
-          <div class="articles__btns">
-            <button class="op-btn btn btn-danger btn-lg">حذف</button>
-            <button class="op-btn btn btn-info btn-lg">ویرایش</button>
+          <div className="articles__btns">
+            <button
+              className="op-btn btn btn-danger btn-lg"
+              onClick={removeHandler}
+            >
+              حذف
+            </button>
+            <button className="op-btn btn btn-info btn-lg">ویرایش</button>
           </div>
         </div>
       </div>
