@@ -744,3 +744,6 @@ body {
     url("./fonts/Gandom.ttf") format("truetype"),
     url("./fonts/Gandom.woff") format("woff");
 }
+.show-modal {
+  display: block;
+}
