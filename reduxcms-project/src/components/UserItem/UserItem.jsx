@@ -3,7 +3,15 @@ import { useDispatch } from "react-redux";
 import { removeUser } from "../../redux/store/users";
 import swal from "sweetalert";
 
-export default function UserItem({ _id, firstname, lastname, email }) {
+export default function UserItem({
+  _id,
+  firstname,
+  lastname,
+  email,
+  age,
+  city,
+  username,
+}) {
   const [isShowModal, setIsShowModal] = useState(false);
   const dispath = useDispatch();
   const removeHandler = () => {
@@ -26,20 +34,14 @@ export default function UserItem({ _id, firstname, lastname, email }) {
   return (
     <>
       <div
-        className={`modal ${isShowModal ? "show-modal" : null}`}
+        className={`modal ${isShowModal ? "d-block" : ""}`}
         id="show-info-modal"
       >
         <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h4 className="modal-title">جزئیات</h4>
-              <button
-                type="button"
-                className="btn-close py-0"
-                data-bs-dismiss="modal"
-              ></button>
             </div>
-
             <div className="modal-body position-relative">
               <form action="#" className="form row mx-0">
                 <div className="form__box-input col-12 px-2">
@@ -147,6 +149,7 @@ export default function UserItem({ _id, firstname, lastname, email }) {
           </div>
         </div>
       </div>
+
       <div className="uesrs__item">
         <div className="users__info">
           <img
@@ -168,7 +171,11 @@ export default function UserItem({ _id, firstname, lastname, email }) {
           <button className="btn-custome btn-custome--gray">پیام ها</button>
           <button
             className="btn-custome btn-custome__blue"
-            onClick={() => setIsShowModal(true)}
+            onClick={() => {
+              console.log("clicked in info btn");
+              setIsShowModal(true);
+              console.log(isShowModal);
+            }}
           >
             جرعیات
           </button>
