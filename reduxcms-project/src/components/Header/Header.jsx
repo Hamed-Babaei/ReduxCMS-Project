@@ -11,7 +11,7 @@ export default function Header() {
             className="header__img"
           />
           <div className="header__details">
-            <h4 className="header__name mb-2">محمدامین سعیدی راد</h4>
+            <h4 className="header__name mb-2">حامد بابایی</h4>
             <p className="header__email my-0" lang="en">
               توسعه دهنده جاوا اسکریپت
             </p>
