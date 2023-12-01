@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "bcbbdbdd-bafd-4b8a-acd1-8675f07712c5",
+		"name": "Redux-cms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/users/"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove One",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/users/{{$randomAlphaNumeric}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"{{$randomFirstName}}\",\n    \"lastname\": \"{{$randomLastName}}\",\n    \"username\": \"{{$randomUserName}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"city\": \"{{$randomCity}}\",\n    \"age\": 22\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/users/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/courses/{{$randomAlphaNumeric}}"
+					},
+					"response": []
+				},
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/courses"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Discount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"discount\": \"{{$randomAlphaNumeric}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/courses/discount"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"{{$randomJobTitle}}\",\n\"price\": {{$randomPrice}},\n\"category\": \"فرانت اند\",\n\"registersCount\": 12,\n\"discount\": 60,\n\"desc\": \"{{$randomLoremSentence}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/courses"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Articles",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"{{$randomJobTitle}}\",\n    \"category\": \"فرانت اند\",\n    \"views\": 12,\n    \"desc\": \"{{$randomLoremSentence}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/articles/"
+					},
+					"response": []
+				},
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/articles/"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/articles/6488913d504d1ba823055812"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/categories/"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"{{$randomNamePrefix}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/categories/"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
