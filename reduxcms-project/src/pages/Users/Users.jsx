@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUsersFromServer } from "../../redux/store/users";
 
 export default function Users() {
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
 
   useEffect(() => {
-    dispath(getUsersFromServer());
+    dispatch(getUsersFromServer());
   }, []);
   return (
     <div className="col-8 content px-0">

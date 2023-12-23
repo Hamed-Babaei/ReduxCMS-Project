@@ -8,13 +8,17 @@ export const getUsersFromServer = createAsyncThunk(
       .then((data) => data);
   }
 );
-export const removeUser = createAsyncThunk("users/removeUser", async (id) => {
-  return fetch(`https://redux-cms.iran.liara.run/api/users/${id}`, {
-    method: "DELETE",
-  })
-    .then((res) => res.json())
-    .then((data) => data);
-});
+export const removeUser = createAsyncThunk(
+  "users/removeUser",
+
+  async (id) => {
+    return fetch(`https://redux-cms.iran.liara.run/api/users/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => data);
+  }
+);
 const slice = createSlice({
   name: "users",
   initialState: [],
